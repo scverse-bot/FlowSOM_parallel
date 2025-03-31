@@ -28,10 +28,11 @@ To enable pre-commit locally, simply run
 pre-commit install
 ```
 
-in the root of the repository. Pre-commit will automatically download all dependencies when it is run for the first time.
+in the root of the repository.
+Pre-commit will automatically download all dependencies when it is run for the first time.
 
-Alternatively, you can rely on the [pre-commit.ci][] service enabled on GitHub. If you didn't run `pre-commit` before
-pushing changes to GitHub it will automatically commit fixes to your pull request, or show an error message.
+Alternatively, you can rely on the [pre-commit.ci][] service enabled on GitHub.
+If you didn't run `pre-commit` before pushing changes to GitHub it will automatically commit fixes to your pull request, or show an error message.
 
 If pre-commit.ci added a commit on a branch you still have been working on locally, simply use
 
@@ -114,47 +115,40 @@ The documentation is set-up to render jupyter notebooks stored in the `docs/note
 Currently, only notebooks in `.ipynb` format are supported that will be included with both their input and output cells.
 It is your responsibility to update and re-run the notebook whenever necessary.
 
-If you are interested in automatically running notebooks as part of the continuous integration, please check
-out [this feature request](https://github.com/scverse/cookiecutter-scverse/issues/40) in the `cookiecutter-scverse`
-repository.
+If you are interested in automatically running notebooks as part of the continuous integration,
+please check out [this feature request][issue-render-notebooks] in the `cookiecutter-scverse` repository.
+
+[issue-render-notebooks]: https://github.com/scverse/cookiecutter-scverse/issues/40
 
 #### Hints
 
--   If you refer to objects from other packages, please add an entry to `intersphinx_mapping` in `docs/conf.py`. Only
-    if you do so can sphinx automatically create a link to the external documentation.
--   If building the documentation fails because of a missing link that is outside your control, you can add an entry to
-    the `nitpick_ignore` list in `docs/conf.py`
+- If you refer to objects from other packages, please add an entry to `intersphinx_mapping` in `docs/conf.py`.
+  Only if you do so can sphinx automatically create a link to the external documentation.
+- If building the documentation fails because of a missing link that is outside your control,
+  you can add an entry to the `nitpick_ignore` list in `docs/conf.py`
+
+(docs-building)=
 
 #### Building the docs locally
 
+:::::{tabs}
+::::{group-tab} Hatch
+
 ```bash
-cd docs
-make html
-open _build/html/index.html
+hatch run docs:build
+hatch run docs:open
 ```
 
-<!-- Links -->
+::::
 
-[scanpy developer guide]: https://scanpy.readthedocs.io/en/latest/dev/index.html
-[cookiecutter-scverse-instance]: https://cookiecutter-scverse-instance.readthedocs.io/en/latest/template_usage.html
-[github quickstart guide]: https://docs.github.com/en/get-started/quickstart/create-a-repo?tool=webui
-[codecov]: https://about.codecov.io/sign-up/
-[codecov docs]: https://docs.codecov.com/docs
-[codecov bot]: https://docs.codecov.com/docs/team-bot
-[codecov app]: https://github.com/apps/codecov
-[pre-commit.ci]: https://pre-commit.ci/
-[readthedocs.org]: https://readthedocs.org/
-[myst-nb]: https://myst-nb.readthedocs.io/en/latest/
-[jupytext]: https://jupytext.readthedocs.io/en/latest/
-[pre-commit]: https://pre-commit.com/
-[anndata]: https://github.com/scverse/anndata
-[mudata]: https://github.com/scverse/mudata
-[pytest]: https://docs.pytest.org/
-[semver]: https://semver.org/
-[sphinx]: https://www.sphinx-doc.org/en/master/
-[myst]: https://myst-parser.readthedocs.io/en/latest/intro.html
-[numpydoc-napoleon]: https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
-[numpydoc]: https://numpydoc.readthedocs.io/en/latest/format.html
-[sphinx autodoc typehints]: https://github.com/tox-dev/sphinx-autodoc-typehints
-[pypi]: https://pypi.org/
-[managing GitHub releases]: https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository
+::::{group-tab} Pip
+
+```bash
+source .venv/bin/activate
+cd docs
+make html
+(xdg-)open _build/html/index.html
+```
+
+::::
+:::::
