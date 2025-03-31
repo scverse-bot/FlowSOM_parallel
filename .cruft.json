@@ -1,7 +1,7 @@
 {
   "template": "https://github.com/scverse/cookiecutter-scverse",
-  "commit": "009f1b5205d007026e76b3dd79f57ad946947ceb",
-  "checkout": null,
+  "commit": "497afeaf179fe5c1144c4503046efa494586cc3d",
+  "checkout": "test4",
   "context": {
     "cookiecutter": {
       "project_name": "FlowSOM",
@@ -10,8 +10,9 @@
       "author_full_name": "Artuur Couckuyt",
       "author_email": "artuur.couckuyt@ugent.be",
       "github_user": "artuurC",
-      "project_repo": "https://github.com/artuurC/FlowSOM",
+      "github_repo": "FlowSOM",
       "license": "GNU General Public License Version 3",
+      "ide_integration": true,
       "_copy_without_render": [
         ".github/workflows/build.yaml",
         ".github/workflows/test.yaml",
@@ -22,7 +23,8 @@
         "lstrip_blocks": true,
         "trim_blocks": true
       },
-      "_template": "https://github.com/scverse/cookiecutter-scverse"
+      "_template": "https://github.com/scverse/cookiecutter-scverse",
+      "_commit": "497afeaf179fe5c1144c4503046efa494586cc3d"
     }
   },
   "directory": null
